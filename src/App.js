@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
+import Container from '@mui/material/Container';
+import Landing from './components/Landing/Landing';
+import MyEditor from './components/MyEditor/MyEditor';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
+export default function App() {  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        <Container maxWidth="lg">
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Landing />} />
+                    <Route path="/write" element={<MyEditor />} />
+                </Routes>
+            </Router>
+        </Container>
+    </React.Fragment>
   );
 }
-
-export default App;
